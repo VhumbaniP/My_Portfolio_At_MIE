@@ -8,13 +8,13 @@
 </head>
 
 <body>
-  <!-- Progress bar is fine as a div since it's a decorative UI element -->
+  
   <div class="scroll-progress"></div>
 
   <header class="navbar">
-    <nav class="container nav-container"> <!-- Use <nav> for navigation wrappers -->
+    <nav class="container nav-container"> 
       <div class="logo">
-        &lt;<span><a href="#home">Vhumbani</a></span>/&gt;
+        &lt;<span>Vhumbani</span>/&gt;
       </div>
 
       <ul class="nav-links">
@@ -26,11 +26,11 @@
     </nav>
   </header>
 
-  <main> <!-- Wrap your main content in a <main> tag -->
+  <main> <!--main-->
 
     <section id="home" class="hero-section">
       <div class="container hero">
-        <article class="hero-content"> <!-- Use <article> for independent content blocks -->
+        <article class="hero-content">
           <h1 class="hero-title">Building clean and modern digital experiences.</h1>
           <p class="hero-sub">
             I'm <span class="accent">Vhumbani Phindulo</span>, 
@@ -39,7 +39,7 @@
           <a href="#projects" class="btn-primary">View My Work</a>
         </article>
 
-        <figure class="hero-image"> <!-- Use <figure> for images with meaning -->
+        <figure class="hero-image"> 
           <img src="images/toffee 2.jpg" alt="Vhumbani Phindulo">
         </figure>
       </div>
@@ -49,7 +49,7 @@
       <div class="container">
         <h2 class="section-title">Selected Projects</h2>
         <div class="projects-grid">
-          <!-- Each project is an independent article -->
+          
           <article class="project-card">
             <h3>A Clothing Design System</h3>
             <p><small>MYSQL • PHP • Node.js</small></p>
@@ -57,11 +57,13 @@
 
           <article class="project-card">
             <h3>Agri Membership Management System</h3>
+            <a href="https://github.com/VhumbaniP/VhumbaniP.git">Link to Github Project</a>
             <p><small>SpringBoot • Java • Bootstrap</small></p>
           </article>
 
           <article class="project-card">
             <h3>Tutoring Website System</h3>
+            <a href="">Link to Github Project</a>
             <p><small>WordPress • PHP • Elementor</small></p>
           </article>
         </div>
@@ -72,11 +74,11 @@
       <div class="container">
         <h2 class="section-title">Professional Profile</h2>
         <article class="cv-card">
-          <aside class="cv-left"> <!-- Use <aside> for sidebar-style info -->
+          <aside class="cv-left"> 
             <h3>Phindulo Vhumbani</h3>
             <p class="cv-role">Aspiring Java Developer</p>
             <div class="cv-highlights">
-              <!-- Using <ul> for lists of stats is better than nested divs -->
+              
               <ul>
                 <li><span>Experience</span> <strong>4+ Years Coding</strong></li>
                 <li><span>Projects</span> <strong>6+ Completed</strong></li>
@@ -97,13 +99,13 @@
 
     <section id="contact" class="section contact-section">
       <div class="container contact-container">
-        <header class="contact-text"> <!-- Use <header> inside sections too -->
+        <header class="contact-text"> 
           <h2>Let’s build something great.</h2>
           <p>Open for opportunities and collaborations.</p>
         </header>
 
         <form class="contact-form">
-          <!-- Added <label> tags (standard for rubrics/accessibility) -->
+         
           <label for="name" class="sr-only">Name</label>
           <input type="text" id="name" placeholder="Your Name" required>
           
