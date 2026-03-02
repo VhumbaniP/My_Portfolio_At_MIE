@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vhumbani Phindulo | Java Developer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Progress bar is fine as a div since it's a decorative UI element -->
+  <div class="scroll-progress"></div>
+
+  <header class="navbar">
+    <nav class="container nav-container"> <!-- Use <nav> for navigation wrappers -->
+      <div class="logo">
+        &lt;<span>Vhumbani</span>/&gt;
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main> <!-- Wrap your main content in a <main> tag -->
+
+    <section id="home" class="hero-section">
+      <div class="container hero">
+        <article class="hero-content"> <!-- Use <article> for independent content blocks -->
+          <h1 class="hero-title">Building clean and modern digital experiences.</h1>
+          <p class="hero-sub">
+            I'm <span class="accent">Vhumbani Phindulo</span>, 
+            a Computer Science Graduate & Aspiring Java developer.
+          </p>
+          <a href="#projects" class="btn-primary">View My Work</a>
+        </article>
+
+        <figure class="hero-image"> <!-- Use <figure> for images with meaning -->
+          <img src="images/toffee 2.jpg" alt="Vhumbani Phindulo">
+        </figure>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="projects-grid">
+          <!-- Each project is an independent article -->
+          <article class="project-card">
+            <h3>A Clothing Design System</h3>
+            <p><small>MYSQL • PHP • Node.js</small></p>
+          </article>
+
+          <article class="project-card">
+            <h3>Agri Membership Management System</h3>
+            <p><small>SpringBoot • Java • Bootstrap</small></p>
+          </article>
+
+          <article class="project-card">
+            <h3>Tutoring Website System</h3>
+            <p><small>WordPress • PHP • Elementor</small></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv" class="section cv-section">
+      <div class="container">
+        <h2 class="section-title">Professional Profile</h2>
+        <article class="cv-card">
+          <aside class="cv-left"> <!-- Use <aside> for sidebar-style info -->
+            <h3>Phindulo Vhumbani</h3>
+            <p class="cv-role">Aspiring Java Developer</p>
+            <div class="cv-highlights">
+              <!-- Using <ul> for lists of stats is better than nested divs -->
+              <ul>
+                <li><span>Experience</span> <strong>4+ Years Coding</strong></li>
+                <li><span>Projects</span> <strong>6+ Completed</strong></li>
+                <li><span>Speciality</span> <strong>Java & Frontend</strong></li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="cv-right">
+            <p>I develop practical, scalable web and software solutions...</p>
+            <a href="assets/Vhumbani-Phindulo-CV.pdf" class="btn-primary cv-download" download>
+              Download Full CV
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container contact-container">
+        <header class="contact-text"> <!-- Use <header> inside sections too -->
+          <h2>Let’s build something great.</h2>
+          <p>Open for opportunities and collaborations.</p>
+        </header>
+
+        <form class="contact-form">
+          <!-- Added <label> tags (standard for rubrics/accessibility) -->
+          <label for="name" class="sr-only">Name</label>
+          <input type="text" id="name" placeholder="Your Name" required>
+          
+          <label for="email" class="sr-only">Email</label>
+          <input type="email" id="email" placeholder="Your Email" required>
+          
+          <label for="message" class="sr-only">Message</label>
+          <textarea id="message" placeholder="Your Message" required></textarea>
+
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer"> <!-- Always include a <footer> element -->
+    <div class="container">
+      <p>&copy; 2024 Vhumbani Phindulo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="javascript/script.js"></script>
+</body>
+</html>
