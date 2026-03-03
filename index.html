@@ -38,7 +38,9 @@
             I'm <span class="accent">Vhumbani Phindulo</span>, 
             a Computer Science Graduate & Aspiring Java developer.
           </p>
-          <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#projects" class="btn-primary">
+          <span>View My Work</span>
+        </a>
         </article>
 
         <figure class="hero-image"> 
@@ -108,18 +110,25 @@
         </header>
 
         <form class="contact-form">
-         
-          <label for="name" class="sr-only">Name</label>
-          <input type="text" id="name" placeholder="Your Name" required>
-          
-          <label for="email" class="sr-only">Email</label>
-          <input type="email" id="email" placeholder="Your Email" required>
-          
-          <label for="message" class="sr-only">Message</label>
-          <textarea id="message" placeholder="Your Message" required></textarea>
+  <div class="input-group">
+    <input type="text" id="name" required="" autocomplete="off" class="input">
+    <label class="user-label">Your Name</label>
+  </div>
+  
+  <div class="input-group">
+    <input type="email" id="email" required="" autocomplete="off" class="input">
+    <label class="user-label">Your Email</label>
+  </div>
+  
+  <div class="input-group">
+    <textarea id="message" required="" class="input"></textarea>
+    <label class="user-label">Your Message</label>
+  </div>
 
-          <button type="submit" class="btn-primary">Send Message</button>
-        </form>
+  <button type="submit" class="btn-primary">
+    <span>Send Message</span>
+  </button>
+</form>
       </div>
     </section>
 
