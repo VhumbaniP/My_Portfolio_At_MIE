@@ -586,7 +586,18 @@ body::before{
   transform: scale(0.95);
 }
 
-/* --- DOWNLOAD BUTTON UI --- */
+/* --- FIXED CV DOWNLOAD ANIMATION --- */
+
+/* 1. Fix the parent container so it doesn't hide the drop */
+.cv-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  overflow: visible !important; /* This is the key fix */
+}
+
 .download-button {
   position: relative;
   border-width: 0;
@@ -594,10 +605,11 @@ body::before{
   font-size: 15px;
   font-weight: 600;
   border-radius: 4px;
-  z-index: 1;
+  z-index: 10; /* Higher z-index */
   text-decoration: none;
   display: inline-flex;
   cursor: pointer;
+  overflow: visible; /* Added this too */
 }
 
 .download-button .docs {
@@ -605,17 +617,18 @@ body::before{
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  min-height: 40px;
-  padding: 0 10px;
+  min-height: 45px; /* Slightly taller for better feel */
+  padding: 0 20px;
   border-radius: 4px;
-  z-index: 1;
+  z-index: 2; /* Sits above the 'download' div */
   background-color: #242424;
-  border: solid 1px #4cc9f022;
-  transition: all .3s cubic-bezier(0.77, 0, 0.175, 1);
+  border: solid 1px #4cc9f044;
+  transition: all .4s cubic-bezier(0.77, 0, 0.175, 1);
+  position: relative;
 }
 
 .download-button:hover .docs {
-  border-color: #242424;
+  border-color: #4cc9f0;
   background-color: #4cc9f0;
   color: #0c0c0c;
 }
@@ -628,22 +641,24 @@ body::before{
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 0;
+  top: 0; /* Changed from bottom: 0 */
   left: 0;
   border-radius: 4px;
-  z-index: -1;
+  z-index: 1; /* Behind docs until hover */
   transform: translateY(0);
-  transition: all .3s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all .4s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .download-button:hover .download {
-  transform: translateY(100%);
+  transform: translateY(100%); /* Drops down below the button */
 }
 
-.download-button svg {
-  width: 20px;
-  height: 20px;
+.download-button .download svg {
+  width: 22px;
+  height: 22px;
+  stroke: #0c0c0c; /* Ensure icon is visible on the blue background */
 }
+
 /* --- PREMIUM PROJECT CARDS --- */
 .projects-grid {
   display: grid;
@@ -1392,6 +1407,177 @@ section {
   transform: translateX(-50%) translateY(0);
 }
 
+/* --- CV LEFT SIDE OVERHAUL --- */
+.cv-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(76, 201, 240, 0.1);
+  color: #4cc9f0;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid rgba(76, 201, 240, 0.2);
+  margin-bottom: 10px;
+}
+
+.cv-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background: rgba(76, 201, 240, 0.05);
+  border-color: #4cc9f0;
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #4cc9f0;
+}
+
+.stat-plus {
+  font-size: 1.1rem;
+  color: #4cc9f0;
+  font-weight: 700;
+}
+
+.stat-card p {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.5;
+  margin-top: 5px;
+}
+
+/* Make first card wide */
+.stat-card:first-child {
+  grid-column: span 2;
+}
+
+/* Ensure CV Right stays aligned */
+.cv-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* --- HERO SECTION POLISH --- */
+.hero-section {
+  padding-top: 140px; /* Space for the floating nav */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(76, 201, 240, 0.05);
+  border: 1px solid rgba(76, 201, 240, 0.2);
+  border-radius: 100px;
+  color: #4cc9f0;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #4cc9f0;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #4cc9f0;
+  animation: pulse 2s infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #4cc9f0, #4361ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- IMAGE FRAME & GLOW --- */
+.hero-image-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.main-profile {
+  width: 320px;
+  border-radius: 30px;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  filter: grayscale(20%);
+  transition: 0.5s ease;
+}
+
+.image-border-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, #4cc9f0, transparent, #4361ee);
+  border-radius: 35px;
+  z-index: 1;
+  opacity: 0.3;
+  filter: blur(15px);
+  animation: rotateGlow 6s linear infinite;
+}
+
+/* Floating Elements */
+.floating-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #1a1a1a;
+  border: 1px solid rgba(76, 201, 240, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4cc9f0;
+  font-size: 1.5rem;
+  z-index: 3;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  animation: float 4s ease-in-out infinite;
+}
+
+.icon-java { top: -20px; right: -20px; }
+.icon-code { bottom: 20px; left: -30px; animation-delay: 2s; }
+
+/* --- ANIMATIONS --- */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes rotateGlow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
 
 
 
@@ -1443,4 +1629,23 @@ section {
   .is-active .bar:nth-child(2) { opacity: 0; }
   .is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+   .nav-links {
+    position: fixed;
+    top: -110vh; /* Keeps it off-screen at start */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(12, 12, 12, 0.98);
+    display: flex; /* Ensure it stays flex even when hidden */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* FORCE it to the very front */
+    transition: top 0.5s ease-in-out;
+  }
+
+  .nav-links.active {
+    top: 0 !important; /* Slide down to cover the screen */
+  }
 }

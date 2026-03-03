@@ -317,13 +317,13 @@ menuBtn.addEventListener('click', () => {
     navList.classList.toggle('active');
 });
 
-//  Close menu when clicking a link (so it doesn't stay open after navigation)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        menuBtn.classList.remove('is-active');
-        navList.classList.remove('active');
-    });
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('is-active');
+    navList.classList.toggle('active'); // This MUST match the .active class in CSS
 });
+
+//  Close menu when clicking a link (so it doesn't stay open after navigation)
+
 
 // Scroll Reveal Observer
 const revealObserver = new IntersectionObserver((entries) => {
@@ -347,6 +347,49 @@ window.addEventListener('scroll', () => {
         nav.classList.add('shrink');
     } else {
         nav.classList.remove('shrink');
+    }
+});
+// Function to run the counters
+const runCounters = () => {
+    const stats = document.querySelectorAll('.stat-number');
+    stats.forEach(stat => {
+        const target = +stat.getAttribute('data-target');
+        let count = 0;
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps logic
+
+        const update = () => {
+            count += increment;
+            if (count < target) {
+                stat.innerText = Math.floor(count);
+                requestAnimationFrame(update);
+            } else {
+                stat.innerText = target;
+            }
+        };
+        update();
+    });
+};
+
+// Start counting when #cv section is visible
+const cvSectionObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+        runCounters();
+        cvSectionObserver.disconnect(); // Only run once
+    }
+}, { threshold: 0.6 });
+
+const cvSectionElement = document.querySelector('#cv');
+if (cvSectionElement) cvSectionObserver.observe(cvSectionElement);
+
+
+document.addEventListener('mousemove', (e) => {
+    const img = document.querySelector('.main-profile');
+    const moveX = (e.clientX - window.innerWidth / 2) / 40;
+    const moveY = (e.clientY - window.innerHeight / 2) / 40;
+    
+    if(img) {
+        img.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
     }
 });
 

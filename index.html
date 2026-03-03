@@ -40,26 +40,39 @@
 
   <main> <!--main-->
 
-    <section id="home" class="hero-section">
-      <div class="container hero">
-        <article class="hero-content">
-          <h1 class="hero-title">Building clean and modern digital experiences.</h1>
-          <p class="hero-sub">
-            <hr/>
-            I'm <span class="accent">Vhumbani Phindulo</span>, 
-            a Computer Science Graduate & Aspiring Java developer.
-          </p>
-        <button class="uiverse-btn">
-        <span class="btn-text">View My Work</span>
-        <span class="btn-liquid"></span>
-      </button>
-        </article>
-
-        <figure class="hero-image"> 
-          <img src="images/profile2.jpg" alt="Vhumbani Phindulo">
-        </figure>
+   <section id="home" class="hero-section reveal">
+  <div class="container hero">
+    <article class="hero-content">
+      
+      <div class="hero-badge">
+        <span class="pulse-dot"></span> Available for New Projects
       </div>
-    </section>
+
+      <h1 class="hero-title">Building clean and <span class="gradient-text">modern</span> digital experiences.</h1>
+      
+      <p class="hero-sub">
+        I'm <span class="accent glitch" data-text="Vhumbani Phindulo">Vhumbani Phindulo</span>, 
+        <br>a Computer Science Graduate & Aspiring Java Developer.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#projects" class="uiverse-btn">
+          <span class="btn-text">Explore My Work</span>
+          <span class="btn-liquid"></span>
+        </a>
+      </div>
+    </article>
+
+    <!-- 2. The Animated Image Frame -->
+    <figure class="hero-image-wrapper">
+      <div class="image-border-glow"></div>
+      <img src="images/profile2.jpg" alt="Vhumbani Phindulo" class="main-profile">
+      
+      <div class="floating-icon icon-java"><i class="fab fa-java"></i></div>
+      <div class="floating-icon icon-code"><i class="fas fa-code"></i></div>
+    </figure>
+  </div>
+</section>
 
   <section id="projects" class="section" class="section reveal">
   <div class="container">
@@ -137,34 +150,55 @@
 
 
     <section id="cv" class="section cv-section">
-      <div class="container">
-        <h2 class="section-title">Professional Profile</h2>
-        <article class="cv-card">
-          <aside class="cv-left"> 
-            <h3>Phindulo Vhumbani</h3>
-            <p class="cv-role">Aspiring Java Developer</p>
-            <div class="cv-highlights">
-              
-              <ul>
-                <li><span>Experience</span> <strong>4+ Years Coding</strong></li>
-                <li><span>Projects</span> <strong>6+ Completed</strong></li>
-                <li><span>Speciality</span> <strong>Java & Frontend</strong></li>
-              </ul>
-            </div>
-          </aside>
-
-          <div class="cv-right">
-            <p>I develop practical, scalable web and software solutions, Find My attchached CV...</p>
-            <a href="assets/Vhumbani-Phindulo-CV.pdf" class="download-button" download>
-  <div class="docs"><svg class="css-i6dzq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> CV</div>
-  <div class="download">
-    <svg class="css-i6dzq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-  </div>
-</a>
+  <div class="container">
+    <article class="cv-card">
+      <aside class="cv-left"> 
+        <div class="cv-badge">System Metrics</div>
+        <h3>Phindulo Vhumbani</h3>
+        <p class="cv-role">Aspiring Java Developer</p>
+        
+        <!-- NEW DYNAMIC STATS GRID -->
+        <div class="cv-stats-grid">
+          <div class="stat-card" data-tooltip="Verified GitHub Activity">
+            <span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
+            <p>Years Experience of Coding</p>
           </div>
-        </article>
+          <div class="stat-card" data-tooltip="Production Ready Apps">
+            <span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span>
+            <p>Projects Completed</p>
+          </div>
+          <div class="stat-card" data-tooltip="Core Language Proficiency">
+            <span class="stat-number" data-target="95">0</span><span class="stat-plus">%</span>
+            <p>Java Expertise</p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="cv-right">
+        <p>I develop practical, scalable web and software solutions. My focus is on clean architecture and efficient backend systems. Find my attached CV below for a detailed technical breakdown...</p>
+        
+        <a href="assets/Vhumbani-Phindulo-CV.pdf" class="download-button" download>
+          <div class="docs">
+            <svg class="css-i6dzq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg> CV
+          </div>
+          <div class="download">
+            <svg class="css-i6dzq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+        </a>
       </div>
-    </section>
+    </article>
+  </div>
+</section>
 
     <section id="contact" class="section contact-section">
       <div class="container contact-container">
