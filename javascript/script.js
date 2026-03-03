@@ -311,18 +311,21 @@ document.querySelectorAll('section').forEach(section => {
 const menuBtn = document.querySelector('#mobile-menu');
 const navList = document.querySelector('#nav-list');
 
-//  Open/Close Menu
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('is-active');
-    navList.classList.toggle('active');
-});
+if (menuBtn && navList) {
+    // SINGLE event listener
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('is-active');
+        navList.classList.toggle('active');
+    });
 
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('is-active');
-    navList.classList.toggle('active'); // This MUST match the .active class in CSS
-});
-
-//  Close menu when clicking a link (so it doesn't stay open after navigation)
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuBtn.classList.remove('is-active');
+            navList.classList.remove('active');
+        });
+    });
+}
 
 
 // Scroll Reveal Observer
@@ -383,15 +386,6 @@ const cvSectionElement = document.querySelector('#cv');
 if (cvSectionElement) cvSectionObserver.observe(cvSectionElement);
 
 
-document.addEventListener('mousemove', (e) => {
-    const img = document.querySelector('.main-profile');
-    const moveX = (e.clientX - window.innerWidth / 2) / 40;
-    const moveY = (e.clientY - window.innerHeight / 2) / 40;
-    
-    if(img) {
-        img.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
-    }
-});
 
 
 });
