@@ -11,21 +11,32 @@
 <body>
   
   <div class="scroll-progress"></div>
+  <div class="cursor-glow" id="mouse-glow"></div>
 
-  <header class="navbar">
-    <nav class="container nav-container"> 
-      <div class="logo">
-        &lt;<span>Vhumbani</span>/&gt;
-      </div>
 
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="navbar" id="navbar">
+  <nav class="container nav-container"> 
+    <div class="logo">
+      &lt;<span>Vhumbani</span>/&gt;
+    </div>
+
+    <!-- 1. Hamburger Toggle for Mobile -->
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <!-- 2. Nav Links (Hidden on mobile until toggled) -->
+    <ul class="nav-links" id="nav-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <main> <!--main-->
 
@@ -50,12 +61,11 @@
       </div>
     </section>
 
-  <section id="projects" class="section">
+  <section id="projects" class="section" class="section reveal">
   <div class="container">
-    <h2 class="section-title">Selected Projects</h2>
     <div class="projects-grid">
       
-      <!-- Project 1: Clothing Design -->
+      <!--  Clothing Design -->
       <article class="project-card">
         <div class="card-inner">
           <div class="card-content">
@@ -63,7 +73,9 @@
             <h3>A Clothing Design System</h3>
             <p>An integrated design workflow built for modern apparel manufacturing.</p>
             <div class="tech-stack">
-              <span>MYSQL</span><span>PHP</span><span>Node.js</span>
+             <span data-tooltip="Database Optimization">MYSQL</span>
+              <span data-tooltip="Backend Scripting & User Authentication">PHP</span>
+              <span data-tooltip="Asynchronous Event-Driven Runtime">Node.js</span>
             </div>
           </div>
           <a href="https://github.com/VhumbaniP/projects.git" class="project-btn" target="_blank">
@@ -72,7 +84,7 @@
         </div>
       </article>
 
-      <!-- Project 2: Agri System (With Video) -->
+      <!--Agri System (With Video) -->
       <article class="project-card video-card">
         <div class="card-inner">
           <div class="video-container">
@@ -87,7 +99,9 @@
             <h3>Agri Membership System</h3>
             <p>Scalable management system for agricultural cooperative memberships.</p>
             <div class="tech-stack">
-              <span>SpringBoot</span><span>Java</span><span>Bootstrap</span>
+              <span>SpringBoot</span>
+              <span>Java</span>
+              <span>Bootstrap</span>
             </div>
           </div>
           <a href="https://github.com/VhumbaniP/VhumbaniP.git" class="project-btn" target="_blank">
@@ -104,10 +118,12 @@
             <h3>Tutoring Website System</h3>
             <p>Dynamic platform for tutor-student matching and session booking.</p>
             <div class="tech-stack">
-              <span>WordPress</span><span>PHP</span><span>Elementor</span>
+              <span data-tooltip="Theme customization & Plugin management">WordPress</span>
+              <span data-tooltip="Server-side logic & Form handling">PHP</span>
+              <span data-tooltip="Drag-and-drop responsive layout design">Elementor</span>
             </div>
           </div>
-          <a href="https://github.com" class="project-btn" target="_blank">
+          <a href="https://github.com/VhumbaniP" class="project-btn" target="_blank">
             View Repository <i class="fas fa-code"></i>
           </a>
         </div>
@@ -183,31 +199,36 @@
 
   </main>
 
-  <footer class="footer">
+ <footer class="footer">
   <div class="container">
     <h3>Let’s Connect</h3>
 
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/phindulo-vhumbani-988835230/" target="_blank" aria-label="LinkedIn">
+    <div class="social-wrapper">
+      <a href="https://www.linkedin.com/in/phindulo-vhumbani-988835230/" target="_blank" class="social-card linkedin">
         <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
       </a>
 
-      <a href="https://github.com/VhumbaniP" target="_blank" aria-label="GitHub">
+      <a href="https://github.com/VhumbaniP" target="_blank" class="social-card github">
         <i class="fab fa-github"></i>
+        <span>GitHub</span>
       </a>
 
-      <a href="https://wa.me/0723387170" target="_blank" aria-label="WhatsApp">
+      <a href="https://wa.me/0723387170" target="_blank" class="social-card whatsapp">
         <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
       </a>
 
-      <a href="https://facebook.com/Phindulo Vhumbani" target="_blank" aria-label="Facebook">
+      <a href="https://facebook.com" target="_blank" class="social-card facebook">
         <i class="fab fa-facebook"></i>
+        <span>Facebook</span>
       </a>
     </div>
 
-    <p>© 2026 Vhumbani Phindulo. All rights reserved.</p>
+    <p class="copyright">© 2026 Vhumbani Phindulo. All rights reserved.</p>
   </div>
 </footer>
+
 
   <script src="javascript/script.js"></script>
 </body>

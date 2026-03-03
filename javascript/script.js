@@ -273,5 +273,82 @@ const videoObserver = new IntersectionObserver((entries) => {
 bgVideos.forEach(video => videoObserver.observe(video));
 
 
+// Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        nav.classList.add('shrink');
+    } else {
+        nav.classList.remove('shrink');
+    }
+});
+
+// Cursor Background Glow Tracker
+const glow = document.getElementById('mouse-glow');
+document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+});
+
+// Section Reveal on Scroll (Optional but Pro)
+const observerOptions = { threshold: 0.2 };
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'all 0.8s ease-out';
+    sectionObserver.observe(section);
+});
+
+const menuBtn = document.querySelector('#mobile-menu');
+const navList = document.querySelector('#nav-list');
+
+//  Open/Close Menu
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('is-active');
+    navList.classList.toggle('active');
+});
+
+//  Close menu when clicking a link (so it doesn't stay open after navigation)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuBtn.classList.remove('is-active');
+        navList.classList.remove('active');
+    });
+});
+
+// Scroll Reveal Observer
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            
+            // If it's the projects section, also trigger the grid
+            const grid = entry.target.querySelector('.projects-grid');
+            if (grid) grid.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    // If scrolled more than 50px, turn on the "Floating Glass" look
+    if (window.scrollY > 50) {
+        nav.classList.add('shrink');
+    } else {
+        nav.classList.remove('shrink');
+    }
+});
+
 
 });
