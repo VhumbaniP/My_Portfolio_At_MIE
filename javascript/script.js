@@ -209,4 +209,69 @@ if (cvSection) {
   cvObserver.observe(cvSection);
 }
 
+ window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.querySelector(".scroll-progress").style.width = scrolled + "%";
+    });
+
+    //  Mouse Glow Tracker (updates the --x and --y in your CSS)
+    document.addEventListener('mousemove', (e) => {
+        document.body.style.setProperty('--x', e.clientX + 'px');
+        document.body.style.setProperty('--y', e.clientY + 'px');
+    });
+
+    //  Page Load Reveal
+    document.body.classList.add('loaded');
+
+    window.addEventListener('load', () => {
+    // Small delay to let the user see the loader (once we add the HTML)
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 1000);
+});
+
+// Footer Social Icon Magnetic Effect
+document.querySelectorAll('.social-links a').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0px, 0px)';
+    });
+});
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader-wrapper');
+    if (loader) {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.classList.add('loaded');
+            }, 500);
+        }, 1500); // Gives users time to see your terminal effect
+    }
+});
+
+// Rename 'observer' to 'videoObserver' to avoid the redeclare error
+const bgVideos = document.querySelectorAll('.bg-video');
+
+const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.play();
+        } else {
+            entry.target.pause();
+        }
+    });
+}, { threshold: 0.5 });
+
+bgVideos.forEach(video => videoObserver.observe(video));
+
+
+
 });

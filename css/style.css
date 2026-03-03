@@ -1,4 +1,4 @@
-/* =========================
+/*============================
    BASE
 ========================== */
 
@@ -535,6 +535,598 @@ body::before{
   color: #4cc9f0;
 }
 
+/* --- ENHANCED LIQUID BUTTON --- */
+.uiverse-btn {
+  position: relative;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  background: #000; /* Dark base */
+  border: 2px solid #4cc9f0;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 10;
+  letter-spacing: 1px;
+}
+
+.btn-liquid {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 300%;
+  background-color: #4cc9f0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+  border-radius: 40%;
+  opacity: 0;
+}
+
+.uiverse-btn:hover {
+  color: #000;
+  box-shadow: 0 0 20px rgba(76, 201, 240, 0.6);
+}
+
+.uiverse-btn:hover .btn-liquid {
+  top: -50%;
+  opacity: 1;
+  transform: rotate(180deg);
+}
+
+.uiverse-btn:active {
+  transform: scale(0.95);
+}
+
+/* --- DOWNLOAD BUTTON UI --- */
+.download-button {
+  position: relative;
+  border-width: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  z-index: 1;
+  text-decoration: none;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.download-button .docs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 10px;
+  border-radius: 4px;
+  z-index: 1;
+  background-color: #242424;
+  border: solid 1px #4cc9f022;
+  transition: all .3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.download-button:hover .docs {
+  border-color: #242424;
+  background-color: #4cc9f0;
+  color: #0c0c0c;
+}
+
+.download-button .download {
+  position: absolute;
+  background-color: #4cc9f0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
+  z-index: -1;
+  transform: translateY(0);
+  transition: all .3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.download-button:hover .download {
+  transform: translateY(100%);
+}
+
+.download-button svg {
+  width: 20px;
+  height: 20px;
+}
+/* --- PREMIUM PROJECT CARDS --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 20px 0;
+}
+
+.project-card {
+  height: 380px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  border-radius: 20px;
+  border: 1px solid rgba(76, 201, 240, 0.1);
+  position: relative;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover .card-inner {
+  transform: translateY(-10px) rotateX(5deg);
+  border-color: #4cc9f0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(76, 201, 240, 0.1);
+}
+
+.card-content {
+  padding: 30px;
+}
+
+.project-tag {
+  color: #4cc9f0;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.card-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.tech-stack {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-stack span {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Link Visibility Fix */
+.project-btn {
+  background: rgba(76, 201, 240, 0.1); /* Slight tint so it's visible */
+  border-top: 1px solid rgba(76, 201, 240, 0.3);
+  color: #4cc9f0 !important;
+  padding: 20px;
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Hover: Make video clear and button solid */
+.project-card:hover .bg-video {
+  opacity: 0.6;
+  filter: grayscale(0%);
+}
+
+.project-card:hover .project-btn {
+  background: #4cc9f0;
+  color: #000 !important;
+}
+
+.project-card:hover {
+  border-color: #4cc9f0;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* --- HIGH VISIBILITY PROJECT CARDS --- */
+.project-card {
+  position: relative;
+  height: 400px;
+  background: #111; /* Solid dark base */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+
+/* Ensure the video is actually clear */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2; /* Darker when idle */
+  filter: grayscale(80%); /* Subtle grayscale */
+  transition: all 0.5s ease;
+}
+
+/* Gradient overlay so text pops */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(12, 12, 12, 0.95) 20%, rgba(12, 12, 12, 0.4) 100%);
+  z-index: 1;
+}
+
+/* Force text and buttons to the front */
+.card-content, .project-btn {
+  position: relative;
+  z-index: 5; 
+}
+
+
+/* --- VIDEO CARD ENHANCEMENTS --- */
+.video-card .card-inner {
+  background: rgba(20, 20, 20, 0.8); /* Semi-transparent */
+  backdrop-filter: blur(10px);
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3; /* Subtle when not hovering */
+  filter: grayscale(100%) blur(2px);
+  transition: all 0.6s ease;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(12, 12, 12, 0.1), rgba(12, 12, 12, 0.9));
+}
+
+/* Hover Effect: Bring video to life */
+.video-card:hover .bg-video {
+  opacity: 0.8;
+  filter: grayscale(0%) blur(0px);
+  transform: scale(1.1);
+}
+
+.video-card:hover .card-inner {
+  background: rgba(12, 12, 12, 0.4);
+  border-color: #4cc9f0;
+}
+
+/* =========================
+   PROJECTS (ENHANCED & CLICKABLE)
+========================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: #151515;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Stack: Video -> Content -> Button */
+  height: 480px; /* Increased height to fit everything comfortably */
+}
+
+/* Container for content above the video */
+.card-inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 2; /* Sits above video */
+}
+
+.card-content {
+  padding: 30px;
+  flex-grow: 1;
+}
+
+.project-tag {
+  color: #4cc9f0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tech-stack span {
+  font-size: 10px;
+  background: rgba(76, 201, 240, 0.1);
+  color: #4cc9f0;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(76, 201, 240, 0.2);
+}
+
+/* The Link/Button - Forced to the Front */
+.project-btn {
+  position: relative;
+  z-index: 10; /* Highest priority */
+  background: rgba(76, 201, 240, 0.15);
+  color: #4cc9f0 !important;
+  text-align: center;
+  padding: 18px;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(76, 201, 240, 0.3);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-btn {
+  background: #4cc9f0;
+  color: #0c0c0c !important;
+}
+
+/* Video Handling */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2; /* Subtle when idle */
+  transition: opacity 0.5s ease;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #151515 40%, rgba(12, 12, 12, 0.2));
+  z-index: 1;
+}
+
+.project-card:hover .bg-video {
+  opacity: 0.5; /* Brightens on hover */
+}
+
+.project-card:hover {
+  border-color: #4cc9f0;
+  transform: translateY(-10px);
+}
+
+/* --- IMPROVED VIDEO VISIBILITY --- */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #000; /* Dark base to help colors pop */
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Reduced grayscale and increased opacity for idle state */
+  opacity: 0.45; 
+  filter: grayscale(30%) brightness(2.5); 
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  /* Softened the gradient so it doesn't "muddy" the video */
+  background: linear-gradient(
+    to top, 
+    rgba(21, 21, 21, 1) 15%, 
+    rgba(21, 21, 21, 0.2) 60%, 
+    rgba(21, 21, 21, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+/* Hover State: Full Color & Clarity */
+.project-card:hover .bg-video {
+  opacity: 0.8;
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.05); /* Smooth zoom effect */
+}
+
+/* Ensure the Button and Text are still readable on top of clearer video */
+.card-content {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Added shadow for text pop */
+}
+
+/* --- FULL-FRAME VIDEO (NO ZOOM) --- */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px; /* Limits video to the top half of the card */
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(76, 201, 240, 0.2);
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  /* CHANGED: 'contain' shows the full video frame without cropping */
+  object-fit: contain; 
+  opacity: 0.7; /* High visibility even when idle */
+  filter: brightness(0.9);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  /* Reduced gradient so it doesn't cover the video frame */
+  background: linear-gradient(
+    to top, 
+    rgba(21, 21, 21, 1) 5%, 
+    rgba(21, 21, 21, 0) 50%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hover: Full brightness, but NO zoom/scale */
+.project-card:hover .bg-video {
+  opacity: 1;
+  filter: brightness(1.1);
+  transform: none; /* Removed the scale/zoom */
+}
+
+/* Adjusting Card Content to sit below the video */
+.video-card .card-content {
+  margin-top: 220px; /* Pushes text below the video area */
+  padding: 20px;
+  background: #151515;
+}
+
+
+/* 1. Video at the Top */
+.video-container {
+  position: relative; /* Changed from absolute to occupy space */
+  width: 100%;
+  height: 200px; 
+  background: #000;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevents video from squishing */
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Full frame, no zoom */
+  opacity: 0.8;
+  filter: brightness(0.9);
+}
+
+/* 2. Content in the Middle */
+.card-content {
+  padding: 20px;
+  flex-grow: 1; /* Takes up all available middle space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 2;
+}
+
+/* 3. Button Pinned to Bottom */
+.project-btn {
+  width: 100%;
+  background: rgba(76, 201, 240, 0.1);
+  color: #4cc9f0 !important;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-weight: 800;
+  border-top: 1px solid rgba(76, 201, 240, 0.2);
+  margin-top: auto; /* Pushes to the absolute bottom of the flex container */
+  z-index: 10;
+}
+
+.project-card:hover {
+  border-color: #4cc9f0;
+  transform: translateY(-5px);
+}
+
+.project-card:hover .project-btn {
+  background: #4cc9f0;
+  color: #0c0c0c !important;
+}
+
+/* Remove that old margin-top if it's still there */
+.video-card .card-content {
+  margin-top: 0 !important;
+}
 
 /* =========================
    RESPONSIVE
