@@ -1,3 +1,27 @@
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg: #0c0c0c;
+  --bg-soft: #111;
+  --card: #151515;
+  --text: #ffffff;
+  --muted: #cccccc;
+  --accent: #4cc9f0;
+  --accent-strong: #4361ee;
+  --border-light: rgba(255,255,255,0.08);
+}
+
+/* LIGHT MODE */
+body.light-mode {
+  --bg: #f4f6f8;
+  --bg-soft: #ffffff;
+  --card: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --accent: #0077ff;
+  --accent-strong: #0056cc;
+  --border-light: rgba(0,0,0,0.1);
+}
+
 /*============================
    BASE
 ========================== */
@@ -1480,11 +1504,11 @@ section {
 .hero-content {
   z-index: 5;
   position: relative;
+ 
   margin-top: 20px; 
 }
-
 .hero-section {
-  padding-top: 140px; 
+  padding-top: 140px; /* Space for the floating nav */
   position: relative;
   overflow: hidden;
 }
@@ -1617,6 +1641,13 @@ section {
     z-index: 1002;
   }
 
+.nav-links {
+  display: flex;
+  gap: 30px;
+  position: static; /* Keeps it in the navbar */
+  height: auto;
+  background: transparent;
+}
 
   .nav-links.active {
     top: 0; /* Slides down */
@@ -1631,76 +1662,137 @@ section {
   .is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-}
-
-/* =========================
-   CLEAN MOBILE NAV SYSTEM
-========================== */
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  z-index: 1002;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: #4cc9f0;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-
-  .nav-links {
+   .nav-links {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 75%;
-    height: 100vh;
-    background: linear-gradient(145deg, #0c0c0c, #111);
-    backdrop-filter: blur(20px);
+    top: -110vh; /* Hidden off-screen */
+    left: 0;
+    width: 100%;
+    height: 100vh; 
+    background: rgba(12, 12, 12, 0.98);
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 45px;
-    transition: right 0.4s cubic-bezier(.77,0,.18,1);
-    z-index: 1001;
-    box-shadow: -10px 0 40px rgba(0,0,0,0.6);
+    z-index: 1000;
   }
 
   .nav-links.active {
-    right: 0;
+    top: 0; 
   }
-
-  .nav-links a {
-    font-size: 1.4rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-  }
-
-  .menu-toggle {
-    display: flex;
-    z-index: 1002;
-  }
-
 }
 
-.mobile-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(3px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
+/* =========================================
+   THEME COLOR OVERRIDES 
+========================================= */
+
+/* Backgrounds */
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }
 
-.mobile-overlay.active {
-  opacity: 1;
-  pointer-events: all;
+.navbar,
+.navbar.shrink {
+  background: var(--bg) !important;
+  border-color: var(--border-light) !important;
+}
+
+.cv-section {
+  background: linear-gradient(180deg, var(--bg), var(--bg-soft)) !important;
+}
+
+.footer {
+  background: var(--bg-soft) !important;
+}
+
+/* Cards */
+.project-card,
+.cv-card,
+.card-inner,
+.video-card .card-inner {
+  background: var(--card) !important;
+}
+
+.stat-card,
+.social-card {
+  background: var(--card) !important;
+  border-color: var(--border-light) !important;
+}
+
+/* Text */
+.nav-links a,
+.card-content h3,
+.footer h3,
+.project-card h3 {
+  color: var(--text) !important;
+}
+
+.hero-sub,
+.cv-right p,
+.footer p {
+  color: var(--muted) !important;
+}
+
+/* Accent */
+.logo span,
+.accent,
+.cv-role,
+.project-tag,
+.social-card i,
+.stat-number,
+.stat-plus {
+  color: var(--accent) !important;
+}
+
+.btn-primary,
+.project-card:hover .project-btn,
+.download-button:hover .docs {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+.project-btn {
+  color: var(--accent) !important;
+}
+
+/* Inputs */
+.input,
+.contact-form input,
+.contact-form textarea {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border-color: var(--border-light) !important;
+}
+
+.input:focus {
+  border-color: var(--accent) !important;
+}
+
+.user-label {
+  color: var(--muted) !important;
+}
+
+.input:focus ~ label {
+  color: var(--accent) !important;
+  background-color: var(--bg) !important;
+}
+
+/* Liquid Button */
+.uiverse-btn {
+  background: var(--card) !important;
+  border-color: var(--accent) !important;
+  color: var(--text) !important;
+}
+
+.btn-liquid {
+  background: var(--accent) !important;
+}
+
+/* Progress Bar */
+.scroll-progress {
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong)) !important;
+}
+
+/* Mobile Nav */
+@media (max-width:768px){
+  .nav-links {
+    background: var(--bg) !important;
+  }
 }

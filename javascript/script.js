@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================
-   PROJECT CARD 3D TILT (PREMIUM VERSION)
+   PROJECT CARD 3D TILT
 ========================== */
 
 const cards = document.querySelectorAll(".project-card");
@@ -133,7 +133,7 @@ window.addEventListener("scroll",()=>{
 });
 
 /* =========================
-   HERO WORD ANIMATION (FIXED SPACING VERSION)
+   HERO WORD ANIMATION 
 ========================== */
 
 const heroTitle = document.querySelector(".hero-title");
@@ -152,7 +152,7 @@ if (heroTitle) {
     span.textContent = word;
     span.style.opacity = "0";
     span.style.display = "inline-block";
-    span.style.marginRight = "12px";  // <-- THIS FIXES SPACING
+    span.style.marginRight = "12px";  // THIS FIXES SPACING
     span.style.transform = "translateY(40px)";
     span.style.transition =
       `all 0.7s cubic-bezier(.2,.65,.3,1) ${index * 0.12}s`;
@@ -216,7 +216,7 @@ if (cvSection) {
         document.querySelector(".scroll-progress").style.width = scrolled + "%";
     });
 
-    //  Mouse Glow Tracker (updates the --x and --y in your CSS)
+    //  Mouse Glow Tracker
     document.addEventListener('mousemove', (e) => {
         document.body.style.setProperty('--x', e.clientX + 'px');
         document.body.style.setProperty('--y', e.clientY + 'px');
@@ -226,7 +226,7 @@ if (cvSection) {
     document.body.classList.add('loaded');
 
     window.addEventListener('load', () => {
-    // Small delay to let the user see the loader (once we add the HTML)
+    // Small delay to let the user see the loader
     setTimeout(() => {
         document.body.classList.add('loaded');
     }, 1000);
@@ -257,7 +257,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// Rename 'observer' to 'videoObserver' to avoid the redeclare error
+
 const bgVideos = document.querySelectorAll('.bg-video');
 
 const videoObserver = new IntersectionObserver((entries) => {
@@ -290,7 +290,7 @@ document.addEventListener('mousemove', (e) => {
     glow.style.top = e.clientY + 'px';
 });
 
-// Section Reveal on Scroll (Optional but Pro)
+// Section Reveal on Scroll 
 const observerOptions = { threshold: 0.2 };
 const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -330,6 +330,7 @@ if (menuBtn && navList) {
 
 // Scroll Reveal Observer
 const revealObserver = new IntersectionObserver((entries) => {
+
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
@@ -374,7 +375,7 @@ const runCounters = () => {
     });
 };
 
-// Start counting when #cv section is visible
+// Start counting when cv section is visible
 const cvSectionObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
         runCounters();
@@ -384,6 +385,31 @@ const cvSectionObserver = new IntersectionObserver((entries) => {
 
 const cvSectionElement = document.querySelector('#cv');
 if (cvSectionElement) cvSectionObserver.observe(cvSectionElement);
+
+//the theme changing
+const themeToggle = document.querySelector(".theme-toggle");
+
+if (themeToggle) {
+
+  // Load saved theme
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+    themeToggle.textContent = "☀️";
+  }
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+      localStorage.setItem("theme", "light");
+      themeToggle.textContent = "☀️";
+    } else {
+      localStorage.setItem("theme", "dark");
+      themeToggle.textContent = "🌙";
+    }
+  });
+
+}
 
 
 
