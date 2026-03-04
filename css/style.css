@@ -1476,8 +1476,15 @@ section {
 }
 
 /* --- HERO SECTION POLISH --- */
+
+.hero-content {
+  z-index: 5;
+  position: relative;
+  margin-top: 20px; 
+}
+
 .hero-section {
-  padding-top: 140px; /* Space for the floating nav */
+  padding-top: 140px; 
   position: relative;
   overflow: hidden;
 }
@@ -1589,6 +1596,10 @@ section {
 
 
 @media (max-width: 768px) {
+   .hero {
+    padding-top: 120px; /* Extra space for mobile nav */
+    text-align: center;
+  }
 
     .social-card span {
     display: none; /* Only show icons on very small screens to save space */
@@ -1606,22 +1617,6 @@ section {
     z-index: 1002;
   }
 
-  /* Full Screen Mobile Menu */
-  .nav-links {
-    position: fixed;
-    top: -110vh; 
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(12, 12, 12, 0.98);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1001;
-  }
 
   .nav-links.active {
     top: 0; /* Slides down */
@@ -1636,18 +1631,76 @@ section {
   .is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-   .nav-links {
+}
+
+/* =========================
+   CLEAN MOBILE NAV SYSTEM
+========================== */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #4cc9f0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+
+  .nav-links {
     position: fixed;
-    top: -110vh; /* Hidden off-screen */
-    left: 0;
-    width: 100%;
-    height: 100vh; 
-    background: rgba(12, 12, 12, 0.98);
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: linear-gradient(145deg, #0c0c0c, #111);
+    backdrop-filter: blur(20px);
     flex-direction: column;
-    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+    transition: right 0.4s cubic-bezier(.77,0,.18,1);
+    z-index: 1001;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.6);
   }
 
   .nav-links.active {
-    top: 0; 
+    right: 0;
   }
+
+  .nav-links a {
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 1002;
+  }
+
+}
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }
