@@ -233,6 +233,74 @@ body.loaded{
   transform:scale(1.05);
 }
 
+/* ABOUT SECTION */
+
+.about-container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.section-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-header h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.section-subtitle{
+  opacity:0.7;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.about-text p{
+  margin-bottom:18px;
+  line-height:1.7;
+  font-size:16px;
+}
+
+.about-skills{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+}
+
+.skill-card{
+  padding:25px;
+  border-radius:14px;
+  background:var(--card-bg);
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.3s ease;
+}
+
+.skill-card i{
+  font-size:22px;
+  color:var(--accent-color);
+  margin-bottom:10px;
+}
+
+.skill-card:hover{
+  transform:translateY(-5px);
+}
+
+/* responsive */
+
+@media (max-width:900px){
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
 /* =========================
    SECTIONS
 ========================== */
