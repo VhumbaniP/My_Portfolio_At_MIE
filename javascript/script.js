@@ -411,7 +411,21 @@ if (themeToggle) {
 
 }
 
+/* form reset after submission */
 
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".contact-form");
+
+  if (form) {
+    form.addEventListener("submit", function () {
+
+      setTimeout(() => {
+        form.reset();
+      }, 1000);
+
+    });
+  }
+});
 
 
 });

@@ -1686,6 +1686,13 @@ section {
   background: transparent;
 }
 
+/* text color for white theme desktop */
+
+.social-card span{
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
 @media (max-width: 768px) {
    .hero {
@@ -1783,6 +1790,8 @@ body {
   background: var(--card) !important;
   border-color: var(--border-light) !important;
 }
+
+
 
 /* Text */
 .nav-links a,
