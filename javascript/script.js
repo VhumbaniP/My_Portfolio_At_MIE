@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
-     SCROLL REVEAL (UPGRADED)
+     SCROLL REVEAL 
   ========================== */
 
   const animatedElements = document.querySelectorAll(".section, .project-card");

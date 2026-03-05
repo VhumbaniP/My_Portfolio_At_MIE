@@ -363,7 +363,7 @@ body.loaded{
 }
 
 /* =========================
-   CV PREMIUM SECTION
+   CV SECTION
 ========================== */
 
 .cv-section{
@@ -748,7 +748,7 @@ body::before{
 .download-button .download svg {
   width: 22px;
   height: 22px;
-  stroke: #0c0c0c; /* Ensure icon is visible on the blue background */
+  stroke: #0c0c0c; /* icon is visible on the blue background */
 }
 
 /* --- PREMIUM PROJECT CARDS --- */
@@ -956,7 +956,7 @@ body::before{
 }
 
 /* =========================
-   PROJECTS (ENHANCED & CLICKABLE)
+   PROJECTS 
 ========================== */
 
 .projects-grid {
@@ -973,7 +973,7 @@ body::before{
   position: relative;
   overflow: hidden;
   display: flex;
-  flex-direction: column; /* Stack: Video -> Content -> Button */
+  flex-direction: column; /* Video -> Content -> Button */
   height: 480px; /* Increased height to fit everything comfortably */
 }
 
@@ -1022,7 +1022,7 @@ body::before{
   border: 1px solid rgba(76, 201, 240, 0.2);
 }
 
-/* The Link/Button - Forced to the Front */
+/* The Button - Forced to the Front */
 .project-btn {
   position: relative;
   z-index: 10; /* Highest priority */
@@ -1124,7 +1124,7 @@ body::before{
   text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Added shadow for text pop */
 }
 
-/* --- FULL-FRAME VIDEO (NO ZOOM) --- */
+/* --- NO ZOOM --- */
 .video-container {
   position: absolute;
   top: 0;
@@ -1142,7 +1142,7 @@ body::before{
 .bg-video {
   width: 100%;
   height: 100%;
-  /* CHANGED: 'contain' shows the full video frame without cropping */
+  /*'contain' shows the full video frame without cropping */
   object-fit: contain; 
   opacity: 0.7; /* High visibility even when idle */
   filter: brightness(0.9);
@@ -1185,7 +1185,7 @@ body::before{
   height: 200px; 
   background: #000;
   overflow: hidden;
-  flex-shrink: 0; /* Prevents video from squishing */
+  flex-shrink: 1; /* Prevents video from squishing */
 }
 
 .bg-video {
@@ -1206,7 +1206,7 @@ body::before{
   z-index: 2;
 }
 
-/* 3. Button Pinned to Bottom */
+/* Button Pinned to Bottom */
 .project-btn {
   width: 100%;
   background: rgba(76, 201, 240, 0.1);
@@ -1234,7 +1234,7 @@ body::before{
   margin-top: 0 !important;
 }
 
-/* --- 5. ENHANCED FLOATING NAVBAR --- */
+/* --- ENHANCED FLOATING NAVBAR --- */
 .navbar {
   position: fixed;
   width: 90%; /* Floating look */
@@ -1278,7 +1278,7 @@ body::before{
   transition: all 0.3s ease;
 }
 
-/* Uiverse-style Hover Underglow */
+/* Hover Underglow */
 .nav-links a:hover {
   color: #4cc9f0;
   background: rgba(76, 201, 240, 0.1);
@@ -1357,7 +1357,7 @@ section {
   border-radius: 2px;
 }
 
-/* ===SCROLL REVEAL ANIMATIONS ==*/
+/* ---SCROLL REVEAL ANIMATIONS ---*/
 .reveal {
   position: relative;
   opacity: 0;
@@ -1394,7 +1394,7 @@ section {
   align-items: center;
 }
 
-/* 2. Change Nav to be static/flat at the very top initially */
+/* Change Nav to be static at the very top initially */
 .navbar {
   position: fixed;
   width: 100%; /* Full width at first */
@@ -1408,7 +1408,7 @@ section {
   transition: all 0.4s ease;
 }
 
-/* 3. The "Floating" state triggers ONLY when you scroll */
+/* 3. The "Floating" state triggers ONLY when scrolling */
 .navbar.shrink {
   top: 15px;
   width: 90%;
@@ -1446,7 +1446,7 @@ section {
 
 .social-card i {
   font-size: 1.2rem;
-  color: #4cc9f0; /* Your accent color */
+  color: #4cc9f0; /* accent color */
 }
 
 /* Hover States */
@@ -1499,7 +1499,7 @@ section {
   transform: translateX(-50%) translateY(0);
 }
 
-/* --- CV LEFT SIDE OVERHAUL --- */
+/* --- CV LEFT SIDE  --- */
 .cv-badge {
   display: inline-block;
   padding: 4px 10px;
